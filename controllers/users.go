@@ -3,10 +3,9 @@ package controllers
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
+	"fmt"
 	"strconv"
-
 	"github.com/karthik0309/insta_rest_api/config"
 	"github.com/karthik0309/insta_rest_api/models"
 	"go.mongodb.org/mongo-driver/bson"
@@ -37,7 +36,6 @@ func UserHandler(w http.ResponseWriter, r *http.Request){
 				GetUsers(w,r)
 			}else{
 				GetUserById(w,r)
-				fmt.Printf("i am here")
 			}
 		default:
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -129,7 +127,6 @@ func GetUserById(w http.ResponseWriter, r *http.Request){
 	query := r.URL.Query()
 	reqId :=query["id"][0]
 	id,err := primitive.ObjectIDFromHex(reqId)
-	fmt.Printf(reqId)
 	err = collection.FindOne(ctx,bson.M{"_id":id}).Decode(&user)
 
 	if(err!=nil){

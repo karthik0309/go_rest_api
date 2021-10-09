@@ -16,6 +16,8 @@
     - main file of app
 
 
+
+
 ## ROUTERS BY net/http(based on methods switch case is used)
 
 ```go
@@ -53,6 +55,24 @@ func HashPassword(password string) (string, error) {
 - limit is passed as a query param to the url
 
 
+## Unit tests
+
+```js
+apple@Apples-MacBook-Pro testing % go test -v
+=== RUN   TestGetPosts
+--- PASS: TestGetPosts (0.34s)
+=== RUN   TestGetPostByID
+--- PASS: TestGetPostByID (0.05s)
+=== RUN   TestGetPostByUserID
+--- PASS: TestGetPostByUserID (0.05s)
+=== RUN   TestGetUsers
+--- PASS: TestGetUsers (0.33s)
+=== RUN   TestGetUserByID
+--- PASS: TestGetUserByID (0.05s)
+PASS
+ok      github.com/karthik0309/insta_rest_api/testing   21.391s
+apple@Apples-MacBook-Pro testing % 
+```
 ## EndPoints
 
 ### for user

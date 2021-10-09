@@ -3,11 +3,9 @@ package controllers
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"strconv"
 	"time"
-
 	"github.com/karthik0309/insta_rest_api/config"
 	"github.com/karthik0309/insta_rest_api/models"
 	"go.mongodb.org/mongo-driver/bson"
@@ -29,7 +27,6 @@ func PostHandler(w http.ResponseWriter, r *http.Request){
 				GetPosts(w,r)
 			}else{
 				GetPostById(w,r)
-				fmt.Printf("i am here")
 			}
 		default:
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -109,7 +106,6 @@ func GetPostById(w http.ResponseWriter, r *http.Request){
 	query := r.URL.Query()
 	reqId :=query["id"][0]
 	id,err := primitive.ObjectIDFromHex(reqId)
-	fmt.Printf(reqId)
 	err = postCollection.FindOne(ctx,bson.M{"_id":id}).Decode(&post)
 
 	if(err!=nil){
