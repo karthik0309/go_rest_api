@@ -8,7 +8,7 @@ import(
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-var mongoURI="mongodb+srv://karthik:Kartz1234@cluster0.7tjcx.mongodb.net/instagram?retryWrites=true&w=majority"
+var mongoURI="Your mongo db url"
 var database = "go_rest_api"
 
 func GetCollections(collection string) *mongo.Collection{
